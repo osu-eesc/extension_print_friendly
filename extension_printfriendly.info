@@ -1,0 +1,6 @@
+core = "6.x"
+description = "Adds a Print Friendly link to pages"
+name = "Extension Print Friendly"
+package = "Extension"
+project = "extension_printfriendly"
+version = "6.x-1.0"
