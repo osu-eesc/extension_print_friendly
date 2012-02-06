@@ -7,7 +7,7 @@
   <title><?php print $head_title; ?></title>
   <?php print $head; ?>
   <?php //print $styles; ?>
-  <link rel="stylesheet" href="<?php print base_path() . drupal_get_path('module', 'extension_printfriendly') .'/theme/print.css'; ?>" type="text/css" media="all">
+  <link rel="stylesheet" href="<?php print base_path() . drupal_get_path('module', 'extension_print_friendly') .'/theme/print.css'; ?>" type="text/css" media="all">
 </head>
 
 <body class="print-friendly-body">
