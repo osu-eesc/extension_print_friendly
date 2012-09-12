@@ -1,0 +1,52 @@
+<?php
+
+function extension_print_friendly_link($type, $object, $teaser = FALSE) {
+  if (!$teaser) {
+    $links = array();
+      $links['print-friendly'] = array(
+      'title' => t('Print-friendly version'), 
+      'href' => 'node/' . $object->nid . '/print', 
+      'attributes' => array('title' => t('Show a printer-friendly version of this page')),
+      );
+    return($links);
+  }
+}
+
+function extension_print_friendly_preprocess_page(&$variables) {
+  if (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == 'print') {
+    $variables['template_files'][] =  'page-print';
+  }
+
+  if (arg(0) == 'node' && arg(1) == 'book' && arg(2) == 'export' && arg(3) == 'html' && is_numeric(arg(4)) ) {
+    $variables['template_files'][] =  'page-print';
+    $variables['template_files'][] =  'book-export-html';
+  }
+
+}
+
+function extension_print_friendly_theme_registry_alter(&$theme_registry) {
+  $modulepath = drupal_get_path('module', 'extension_print_friendly') . '/theme';
+  array_unshift($theme_registry['page']['theme paths'], $modulepath);
+}
+
+function extension_print_friendly_link_alter(&$links, $node, $comment = NULL) {
+  if(isset($links['book_printer'] ) && $node->book['depth'] = '1' && $node->book['has_children']) {
+    $links['book_printer']['title'] = 'Print entire book';
+  }
+  else {
+    unset($links['book_printer']);
+  }
+}
+
+function extension_print_friendly_theme() {
+  return array(
+    'book_navigation' => array(
+      'arguments' => array('book_link' => NULL),
+      'template' => 'theme/book-navigation',
+    ),
+    'book_export_html' => array(
+      'arguments' => array('title' => NULL, 'contents' => NULL, 'depth' => NULL),
+      'template' => 'theme/book-export-html',
+    ),
+  );
+}
