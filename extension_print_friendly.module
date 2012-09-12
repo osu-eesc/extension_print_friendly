@@ -8,7 +8,7 @@ function extension_print_friendly_link($type, $object, $teaser = FALSE) {
       'href' => 'node/' . $object->nid . '/print', 
       'attributes' => array('title' => t('Show a printer-friendly version of this page')),
       );
-    return($links);
+    return ($links);
   }
 }
 
@@ -18,7 +18,7 @@ function extension_print_friendly_preprocess_page(&$variables) {
   }
 
   if (arg(0) == 'node' && arg(1) == 'book' && arg(2) == 'export' && arg(3) == 'html' && is_numeric(arg(4)) ) {
-    $variables['template_files'][] =  'page-print';
+    //$variables['template_files'][] =  'page-print';
     $variables['template_files'][] =  'book-export-html';
   }
 
@@ -30,7 +30,7 @@ function extension_print_friendly_theme_registry_alter(&$theme_registry) {
 }
 
 function extension_print_friendly_link_alter(&$links, $node, $comment = NULL) {
-  if(isset($links['book_printer'] ) && $node->book['depth'] = '1' && $node->book['has_children']) {
+  if (isset($links['book_printer'] ) && $node->book['depth'] = '1' && $node->book['has_children']) {
     $links['book_printer']['title'] = 'Print entire book';
   }
   else {
