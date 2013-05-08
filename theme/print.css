@@ -13,11 +13,6 @@ html {
 }
 
 
-
-
-
-
-
 /* underline all links */
 a:link, a:visited {
 	text-decoration: underline !important;
@@ -74,12 +69,13 @@ body,
 	#limiter, #content-wrapper {
 		border: 5pt solid #EEEEEE;
 	}
-	
+
 	#send-to-printer input {
-		background:url('../design_packs/eesc/images/button-bg.png') repeat-x scroll 50% 0 #9E9E9E;
-		border:3px solid #E9E9E9;
-		color:#FFFFFF;
+    background: none repeat-x scroll 50% 0 #9E9E9E;
+    border: 3px solid #E9E9E9;
+    color: #FFFFFF;
 	}
+	
 }
 
 @media print {

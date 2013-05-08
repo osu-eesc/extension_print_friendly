@@ -1,13 +1,13 @@
 <?php // $Id: page.tpl.php,v 1.1.2.5 2010/01/11 00:09:05 sociotech Exp $ ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language->language; ?>" xml:lang="<?php print $language->language; ?>">
 
 <head>
   <title><?php print $head_title; ?></title>
   <?php print $head; ?>
   <?php //print $styles; ?>
-  <link rel="stylesheet" href="<?php print base_path() . drupal_get_path('module', 'extension_print_friendly') .'/theme/print.css'; ?>" type="text/css" media="all">
+  <link rel="stylesheet" href="<?php print base_path() . drupal_get_path('module', 'extension_print_friendly') .'/theme/print.css'; ?>" type="text/css" media="all" />
 </head>
 
 <body class="print-friendly-body">
